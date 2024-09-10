@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header class="header_class">
+        <div class="header_div">
+            <h1>Welcome buddy!</h1>
+            <h2>Lets play Rock Paper Scissors game</h2><br>
+            <h2>Can you beat Me?</h2>
+        </div>
+    </header>
+    <main>
+        <div class="play_container">
+            Select Your Option:
+            <div class="option_container">
+                <div class="option_item">
+                    <img src="images/rock.png" alt="rock">
+                    <button class="button_container" onclick="playGame('ROCK')">ROCK</button>
+                </div>
+                <div class="option_item">
+                    <img src="images/paper.png" alt="paper">
+                    <button class="button_container" onclick="playGame('PAPER')">PAPER</button>
+                </div>
+                <div class="option_item">
+                    <img src="images/scissor.png" alt="scissors">
+                    <button class="button_container" onclick="playGame('SCISSORS')">SCISSORS</button>
+                </div>
+            </div>
+            <div id="result"></div><br><br>
+            <div id="score">Wins: 0 | Losses: 0 | Ties: 0</div>
+        </div>
+    </main>
+    <footer></footer>
+    <script>
+        let wins = 0, losses = 0, ties = 0;
+        function generaterandomchoice() {
+            let randomnum = Math.random() * 3;
+            if (randomnum <= 1) {
+                return 'ROCK';
+            }
+            else if (randomnum <= 2) {
+                return 'PAPER';
+            }
+            else {
+                return 'SCISSORS';
+            }
+        }
+        
+        function getresult(usermove, compmove) {
+            if (usermove == compmove) {
+                return "It's a tie".toUpperCase();
+            }
+            else if (usermove == 'ROCK' && compmove == 'PAPER') {
+                return 'You Lost'.toUpperCase();
+            }
+            else if (usermove == 'ROCK' && compmove == 'SCISSORS') {
+                return 'You Won'.toUpperCase();
+            }
+            else if (usermove == 'PAPER' && compmove == 'ROCK') {
+                return 'You WON'.toUpperCase();
+            }
+            else if (usermove == 'PAPER' && compmove == 'SCISSORS') {
+                return 'You Lost'.toUpperCase();
+            }
+            else if (usermove == 'SCISSORS' && compmove == 'ROCK') {
+                return 'You Lost'.toUpperCase();
+            }
+            else {
+                return 'You Won'.toUpperCase();
+            }
+        }
+        function resultmessage(usermove, compmove, result) {
+            return `You selected ${usermove}, I selected ${compmove}\n                      ${result}`;
+        }
+
+        function updateScore(result) {
+            if (result === 'YOU WON') wins++;
+            else if (result === 'YOU LOST') losses++;
+            else ties++;
+            document.getElementById('score').textContent = `Wins: ${wins} | Losses: ${losses} | Ties: ${ties}`;
+        }
+
+        function playGame(usermove) {
+            const compmove = generaterandomchoice();
+            const result = getresult(usermove, compmove);
+            const message = resultmessage(usermove, compmove, result);
+            alert(message);
+            updateScore(result);
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: #CFDFFF;
+    font-family: Arial, sans-serif;
+}
+
+.header_class{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: bisque;
+    width: 90%;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@media screen and (max-width:600px){
+    .header_class{
+        width: 100%;
+    }
+}
+
+.header_div{
+    margin: 10px 0;
+    color: rgb(48, 75, 103);
+    background-color: bisque;
+    padding: 0 10px;
+    text-transform: capitalize;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_div h1{
+    background-color: bisque;
+    color: rgb(80, 48, 103);
+    margin-bottom: 10px;
+}
+
+.header_div h2{
+    background-color: bisque;
+}
+
+.play_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.option_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.option_item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px;
+    
+}
+
+.option_item img{
+    width: 100px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.option_item img:hover {
+    transform: scale(1.1);
+}
+
+.button_container{
+    width: 90%;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+    background-color: rgb(250, 151, 201);
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.button_container:hover {
+    background-color: rgb(255, 112, 168);
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.option_item {
+    animation: slideUp 0.8s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
